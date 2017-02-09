@@ -3,4 +3,6 @@ bin/
 include/
 lib/
 pip-selfcheck.json
-
+*.sqlite3
+*.pyc
+tango_with_django_project/*/migrations/
