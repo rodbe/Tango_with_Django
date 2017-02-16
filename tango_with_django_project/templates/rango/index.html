@@ -1,19 +1,19 @@
-<!DOCTYPE html>
+{% extends 'rango/base.html' %}
 {% load staticfiles %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Rango</title>
-</head>
-<body>
-    <h1>Rango says...</h1>
-    <div>hey there partner!</br></div>
+
+{% block title_block %}
+    Rango App
+{% endblock %}
+
+{% block body_block %}
+    <h1>Python Stack</h1>
+    <p>Here you could find most popularity stack technologies for Python language.</p>
     <div>
         <h1>Most Liked Category</h1>
         {% if categories %}
         <ul>
             {% for category in categories %}
-                <li><a href="/rango/category/{{ category.slug }}">{{ category.name }}</a></li>
+                <li><a href="{% url 'show_category' category.slug %}">{{ category.name }}</a></li>
             {% endfor %}
         </ul>
         {%else%}
@@ -39,5 +39,4 @@
         <a href="/rango/about/">About</a></br>
         <img src="{% static "images/rango.jpg"%}" alt="Picture of Rango">
     </div>
-</body>
-</html>
+{% endblock %}
